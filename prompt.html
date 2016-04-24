@@ -1,3 +1,60 @@
 <!doctype html>
 <html>
+  <head>
+    <title>JavaScript for Kids Hangman</title>
+    <script>
+      var name = prompt("What's your name?");
+      console.log("Hello, " + name + "!");
+      
+      var words = [
+        "Aries",
+        "Taurus",
+        "Gemini",
+        "Cancer",
+        "Leo",
+        "Virgo",
+        "Libra",
+        "Scorpio",
+        "Sagittarius",
+        "Capricorn",
+        "Aquarius",
+        "Pisces"
+        ];
+        
+      var word = words[Math.floor(Math.random() * words.length)];
+      var answerArray = [];
+        for (var i = 0; i < word.length; i++) {
+          answerArray[i] = "_";
+        };
+        
+      var remainingLetters = word.length;
+      
+    alert(answerArray.join(" "));
+    
+    var guess = prompt("Guess a letter, or click Cancel to stop playing.");
+    
+    if (guess === null) {
+    break;
+    }
+    else if (guess.length !== 1) {
+    alert("Please enter a single letter.");
+    }
+    else {
+      for (var j = 0; j < word.length; j++) {
+        if (word[j] === guess) {
+          answerArray[j] = guess;
+          remainingLetters--; //Every time guess matches a letter in word, remainingLetters decreases by 1. Once the player has guessed all the letters correctly, remainingLetters will be 0.
+    }
+  }
+  }
+alert(answerArray.join(" "));
+alert("Good job! The answer was " + word);
+    
+      
+    </script>
+    
+  </head>
+  <body>
+    
+  </body>
 </html>
